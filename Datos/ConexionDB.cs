@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
+//Gitt prueba
+
 namespace Datos
 {
 	class ConextionDB
