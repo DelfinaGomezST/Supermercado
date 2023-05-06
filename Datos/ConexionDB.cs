@@ -5,19 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 
 //Gitt prueba
 
 namespace Datos
 {
-	class ConextionDB
+	class ConexionDB
 	{
-        static readonly string key = "Presentacion.Properties.Settings.Supermercado";
-        SqlConnection objConexion;
+        private SqlConnection objConexion;
+        private string strCadenaDeConexion = "";
+
+
+        /* -------------------- private void Conectar() ------------ 
+         * Este metodo como indica su nombre... me permite conectarme con la 
+         * base de datos (en este caso, SqlServer)
+         * 
+         */
         private void Conectar()
-        {
-            objConexion = new SqlConnection(ConfigurationManager.ConnectionStrings[key].ConnectionString);
+        {   // HACK: Cadena de conexión hardcodeada. Luego ponerla como parametro de configuración del proyecto u otra alternativa.
+            strCadenaDeConexion = @"CAMBIAR POR CADENA DE CONEXION LOCAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+
+            //Instanció un objeto del tipo SqlConnection
+            objConexion = new SqlConnection();
+            objConexion.ConnectionString = strCadenaDeConexion;
             objConexion.Open();
         }
 
